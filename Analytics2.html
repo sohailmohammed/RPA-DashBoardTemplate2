@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ARB-RPA Dash Bard</title>
+
+    <style>
+        body {
+            background-image: url('./images/Test2.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            height: 100vh !important;
+        }
+
+        #chart span {
+            background: #f1fcff;
+            margin: 5px;
+            border-radius: 50px;
+        }
+        rect{
+            fill: transparent;
+        }
+    </style>
+    <!-- Font awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/Sohail-RPA-DashBoard.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top" class="body">
+
+    <!-- Page -->
+
+    <div class="container-fluid">
+        <div class="shadow mb-1 mt-3 bg-light rounded border-bottom-success">
+            <nav class="navbar navbar-expand-lg p-0 px-4 navbar-light bg-light ">
+
+                <img src="Images\logo4.png" class="pr-5" alt="Virtech" style="width:11%;">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item border-left-dark">
+                            <a class="nav-link" href="SummaryReport.html">Summary Report</a>
+                        </li>
+                        
+                        <li class="nav-item border-left-dark">
+                            <a class="nav-link" href="Analytics.html">Analytics</a>
+                        </li>
+                       
+                        <li class="nav-item border-left-dark">
+                            <a class="nav-link" href="Analytics2.html">Analytics-2</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <img src="Images\logo.png" class="float-right" alt="Virtech" style="width:9%;">
+
+            </nav>
+
+        </div>
+        <!--Navigation Bar Ends-->
+
+
+        <div class="row">
+            <div class="col pr-0">
+                <!--Bar Chat Starts -->
+
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">ARB RPA BOT Productivity </h6>
+                    </div>
+                    <div class="card-body" style="height: 450px;">
+                        <canvas id="myBarChart"></canvas>
+                    </div>
+                </div>
+                <!--Bar Chat Ends-->
+            </div>
+            <div class="col">
+                <!--Pie Chat Starts-->
+
+                <div class="card shadow MB-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Departmentwise process automation</h6>
+                    </div>
+                    <div class="card-body" style="height: 450px; padding-bottom: 5PX;">
+                        <div id="piechart" style="width: 650px; height: 500px; fill-opacity: inherit;"></div>
+                    </div>
+                </div>
+                <!--Pie Chat Ends-->
+
+
+            </div>
+
+        </div>
+        <!-- Footer -->
+        <div class="shadow bg-light">
+            <footer class="sticky-footer bg-light ">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2019</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+    </div><!-- E>nd of Footer -->
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/Sohail-RPA-DashBoard.css"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+
+    <!--Fiter javascript-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+    <!--Pie Chat Script Starts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+  
+        function drawChart() {
+  
+          var data = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+            ['Contact Center',     11],
+            ['Business Operations',      2],
+            ['Under Writing',  2],
+            ['Trasary', 2],
+            // ['Sleep',    7]
+          ]);
+  
+          var options = {
+            title: ''
+          };
+  
+          var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  
+          chart.draw(data, options);
+        }
+      </script>
+       <!--Pie Chat Script Ends   -->
+
+
+    <!--Bar Chat Script Starts-->
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="js/demo/chart-bar-demo.js"></script>
+    <!--Bar Chat Script Ends-->
+
+
+
+
+</body>
+
+</html>

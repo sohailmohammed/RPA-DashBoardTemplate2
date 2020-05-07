@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ARB-RPA Dash Bard</title>
+
+    <style>
+        body {
+            background-image: url('./images/Test2.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            height: 100vh !important;
+        }
+        #chart span{
+            background: #f1fcff;
+            margin: 5px;
+            border-radius: 50px;
+        }
+        path{
+            stroke: #3a3b45;
+            fill-rule: evenodd;
+        }
+    </style>
+    <!-- Font awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/Sohail-RPA-DashBoard.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top" class="body">
+
+    <!-- Page -->
+
+    <div class="container-fluid">
+        <div class="shadow mb-1 mt-3 bg-light rounded border-bottom-success">
+            <nav class="navbar navbar-expand-lg p-0 px-4 navbar-light bg-light ">
+
+                <img src="Images\logo4.png" class="pr-5" alt="Virtech" style="width:11%;">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item border-left-dark">
+                            <a class="nav-link" href="SummaryReport.html">Summary Report</a>
+                        </li>
+                        
+                        <li class="nav-item border-left-dark">
+                            <a class="nav-link" href="Analytics.html">Analytics</a>
+                        </li>
+                       
+                        <li class="nav-item border-left-dark">
+                            <a class="nav-link" href="Analytics2.html">Analytics-2</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <img src="Images\logo.png" class="float-right" alt="Virtech" style="width:9%;">
+
+            </nav>
+
+        </div>
+        <!--Navigation Bar Ends-->
+
+
+        <div class="row">
+            <div class="col pr-0">
+                <!--Bar Chat Starts -->
+
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">ARB RPA BOT Productivity </h6>
+                    </div>
+                    <div class="card-body" style="height: 650px;">
+                        <canvas id="myBarChart"></canvas>
+                    </div>
+                </div>
+                <!--Bar Chat Ends-->
+            </div>
+            <div class="col">
+                <!--Pie Chat Starts-->
+
+                <div class="card shadow MB-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Process Wise Pie Chat</h6>
+                    </div>
+                    <div class="card-body" style="height: 650px; padding-bottom: 5PX;">
+                        <div id="chart">
+                            <div class="d-flex">
+                            <span class="d-flex p-2 align-items-center">
+                                <i class="fas fa-exclamation-circle mr-2"></i>
+                                TC - Total Cases &nbsp; &nbsp;
+                            </span>
+                            <span class="d-flex p-2 align-items-center">
+                                 <i class="fas fa-exclamation-circle mr-2"></i> SE - System Exceptions &nbsp;
+                            </span>
+                            </div>
+                            <div class="d-flex">
+                            <span class="d-flex p-2 align-items-center">
+                                <i class="fas fa-exclamation-circle mr-2"></i> BE - Business Exceptionss <br>
+                            </span>
+                            <span class="d-flex p-2 align-items-center">
+                                 <i class="fas fa-exclamation-circle mr-2"></i> IC - InScope Cases
+                            </span>
+                           
+                            <span class="d-flex p-2 align-items-center">
+                                 <i class="fas fa-exclamation-circle mr-2"></i> CC - Completed Cases
+                            </span>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Pie Chat Ends-->
+
+
+            </div>
+
+        </div>
+        <!-- Footer -->
+        <div class="shadow bg-light">
+            <footer class="sticky-footer bg-light ">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2019</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+    </div><!-- E>nd of Footer -->
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/Sohail-RPA-DashBoard.css"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+
+    <!--Fiter javascript-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+    <!--Pie Chat Script Starts -->
+    <script>
+        var data = {
+            "name": "",
+            "children": [{ "name": "Way2SMSProcess", "children": [{ "name": "TC- ", "size": 8 }, { "name": "SE- ", "size": 4 }, { "name": "BE- ", "size": 2 }, { "name": "IE- ", "size": 4 }, { "name": "CC- ", "size": 2 }] }, { "name": "OddNumberProcess", "children": [{ "name": "TC- ", "size": 9 }, { "name": "SE- ", "size": 2 }, { "name": "BE- ", "size": 0 }, { "name": "IE- ", "size": 7 }, { "name": "CC- ", "size": 7 }] }, { "name": "Sum of 2 numbers", "children": [{ "name": "TC- ", "size": 10 }, { "name": "SE- ", "size": 2 }, { "name": "BE- ", "size": 1 }, { "name": "IE- ", "size": 8 }, { "name": "CC- ", "size": 7 }] }]
+        };
+
+        var width = 700,
+            height = 700,
+            radius = Math.min(width, height) / 3;
+
+        var x = d3.scale.linear()
+            .range([0, 2 * Math.PI]);
+
+        var y = d3.scale.sqrt()
+            .range([0, radius]);
+
+        var color = d3.scale.category20c();
+        // var color = d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, root3.children.length + 1)); 
+
+        let chart = document.getElementById("chart")
+        var svg = d3.select(chart).append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", "translate(" + width / 2 + "," + (height / 2 - 100) + ") rotate(-90 0 0)")
+            .style("font", "10px sans-serif");
+        // .style("Fill", transparent);
+
+        var partition = d3.layout.partition()
+            .value(function (d) {
+                return d.size;
+            }); ""
+
+        var arc = d3.svg.arc()
+            .startAngle(function (d) {
+                return Math.max(0, Math.min(2 * Math.PI, x(d.x)));
+            })
+            .endAngle(function (d) {
+                return Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx)));
+            })
+            .innerRadius(function (d) {
+                return Math.max(0, y(d.y));
+            })
+            .outerRadius(function (d) {
+                return Math.max(0, y(d.y + d.dy));
+            });
+
+        //d3.json("/d/4063550/flare.json", function(error, root) {
+
+
+        var g = svg.selectAll("g")
+            .data(partition.nodes(data))
+            .enter().append("g");
+
+        var path = g.append("path")
+            .attr("d", arc)
+            .style("fill", function (d) {
+                return color((d.children ? d : d.parent).name);
+            })
+            .on("click", click);
+
+        path.append("title")
+            .text(d => d.size ? getnamesOfTooltips(d) : d.name);
+
+        var text = g.append("text")
+            .attr("x", function (d) {
+                return y(d.y);
+            })
+            .attr("dx", "6") // margin
+            .attr("dy", ".35em") // vertical-align
+            .text(function (d) {
+                return d.size ? d.name + " " + d.size : d.name;
+            });
+
+        function computeTextRotation(d) {
+            var angle = x(d.x + d.dx / 2) - Math.PI / 2;
+            return angle / Math.PI * 180;
+        }
+        function getnamesOfTooltips(d) {
+            if (d.name == "TC- ") {
+                return "Total Cases- " + d.size;
+            }
+            if (d.name == "SE- ") {
+                return "System Exceptions- " + d.size;
+            }
+            if (d.name == "BE- ") {
+                return "Business Exceptions- " + d.size;
+            }
+            if (d.name == "IC- ") {
+                return "InScope Cases- " + d.size;
+            }
+            if (d.name == "CC- ") {
+                return "Completed Cases- " + d.size;
+            }
+            if (d.name == "IE- ") {
+                return "InScope Cases- " + d.size;
+            }
+            else {
+                return d.name + " " + d.size;
+            }
+        }
+        text.attr("transform", function (d) {
+            return "rotate(" + computeTextRotation(d) + ")";
+        });
+
+
+        function click(d) {
+            // fade out all text elements
+            if (d.size !== undefined) {
+                d.size += 100;
+            };
+            text.transition().attr("opacity", 0);
+
+            path.transition()
+                .duration(750)
+                .attrTween("d", arcTween(d))
+                .each("end", function (e, i) {
+                    // check if the animated element's data e lies within the visible angle span given in d
+                    if (e.x >= d.x && e.x < (d.x + d.dx)) {
+                        // get a selection of the associated text element
+                        var arcText = d3.select(this.parentNode).select("text");
+                        // fade in the text element and recalculate positions
+                        arcText.transition().duration(750)
+                            .attr("opacity", 1)
+                            .attr("transform", function () {
+                                return "rotate(" + computeTextRotation(e) + ")"
+                            })
+                            .attr("x", function (d) {
+                                return y(d.y);
+                            });
+                    }
+                });
+        } //});
+
+        d3.select(self.frameElement).style("height", height + "px");
+
+        // Interpolate the scales!
+        function arcTween(d) {
+            var xd = d3.interpolate(x.domain(), [d.x, d.x + d.dx]),
+                yd = d3.interpolate(y.domain(), [d.y, 1]),
+                yr = d3.interpolate(y.range(), [d.y ? 20 : 0, radius]);
+            return function (d, i) {
+                return i ? function (t) {
+                    return arc(d);
+                } : function (t) {
+                    x.domain(xd(t));
+                    y.domain(yd(t)).range(yr(t));
+                    return arc(d);
+                };
+            };
+        }
+
+    </script>
+    <!--Pie Chat Script Ends   -->
+
+
+    <!--Bar Chat Script Starts-->
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="js/demo/chart-bar-demo.js"></script>
+    <!--Bar Chat Script Ends-->
+
+
+
+
+</body>
+
+</html>

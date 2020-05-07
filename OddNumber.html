@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>ARB-RPA - OddNumber Process</title>
+
+  <style>
+    body {
+      background-image: url('./images/Test2.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    th select {
+      margin: 4px 0 10px 5px;
+      font-size: 14px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 5px;
+      border-radius: 5px;
+      color: #858796;
+    }
+
+    th option {
+      margin: 0.8rem 0;
+      color: #858796;
+    }
+    thead{
+  color: white;
+  background: #0b7492;
+}
+.title-font{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+  </style>
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/Sohail-RPA-DashBoard.css" rel="stylesheet">
+
+  <!-- Custom styles for this page -->
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top" class="body">
+
+  <!-- Page -->
+
+  <div class="container-fluid">
+    <div class="shadow mb-1 mt-3 bg-light rounded border-bottom-success">
+      <nav class="navbar p-0 px-4 navbar-expand-lg navbar-light bg-light ">
+
+        <img src="Images\logo4.png" class="pr-5" alt="Virtech" style="width:11%;">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item border-left-dark">
+                            <a class="nav-link" href="SummaryReport.html">Summary Report</a>
+                        </li>
+                        
+                        <li class="nav-item border-left-dark">
+                            <a class="nav-link" href="Analytics.html">Analytics</a>
+                        </li>
+                       
+                        <li class="nav-item border-left-dark">
+                            <a class="nav-link" href="Analytics2.html">Analytics-2</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+        <img src="Images\logo.png" class="float-right" alt="Virtech" style="width:9%;">
+
+      </nav>
+    </div>
+    <!--Navigation Bar Ends-->
+
+    <!-- Table Stats Shohail-->
+    <div class="shadow p-3 mt-3 mb-1 bg-light">
+
+      <div class="table-responsive bg-light">
+        <h2 class="text-center title-font">Detailed Report</h2>
+        <table class="table table-bordered text-center" id="example" width="100%" cellspacing="0">
+          <thead>
+            <th>S No</th>
+            <th>InputData</th>
+            <th>Status <br></th>
+            <th>Exception Reason<br></th>
+            <th>ProcessName</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>12</td>
+              <td>Completed Case</td>
+              <td>NA</td>
+              <td>OddNumberProcess</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>25</td>
+              <td>Completed Case</td>
+              <td>NA</td>
+              <td>OddNumberProcess</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>34</td>
+              <td>Completed Case</td>
+              <td>NA</td>
+              <td>OddNumberProcess</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>44</td>
+              <td>Completed Case</td>
+              <td>NA</td>
+              <td>OddNumberProcess</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>48</td>
+              <td>Completed Case</td>
+              <td>NA</td>
+              <td>OddNumberProcess</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>55</td>
+              <td>Completed Case</td>
+              <td>NA</td>
+              <td>OddNumberProcess</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>67</td>
+              <td>Completed Case</td>
+              <td>NA</td>
+              <td>OddNumberProcess</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>A47</td>
+              <td>Exception Case</td>
+              <td>Business Exception - Not an integer input</td>
+              <td>OddNumberProcess</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>ABC</td>
+              <td>Exception Case</td>
+              <td>Business Exception - Not an integer input</td>
+              <td>OddNumberProcess</td>
+            </tr>
+          <tbody>
+        </table>
+
+      </div>
+    </div>
+
+    <!-- Table Ends -->
+    <!-- Footer -->
+    <div class="shadow bg-light">
+      <footer class="sticky-footer bg-light ">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- End of Footer -->
+  </div>
+
+  <!-- Core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/Sohail-RPA-DashBoard.css"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/datatables-demo.js"></script>
+
+  <!--Fiter javascript-->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+  <script>
+
+    // filter dropdowns
+    $(document).ready(function () {
+      function getTextFromString(htmlString) {
+        return document
+          .createRange()
+          .createContextualFragment(htmlString)
+          .textContent
+          .replace(/[\u200B-\u200D\uFEFF\u200E\u200F]/g, '')
+          .trim();
+      }
+      $('#example').DataTable({
+        initComplete: function () {
+          this.api().columns().every(function () {
+
+
+            var column = this;
+            var select = $('<select><option value="">Show All</option></select>')
+              //.appendTo($(column.footer()).empty())
+              .appendTo($(column.header()))
+              .on('change', function () {
+                // TODO - Reset table data on select
+                var val = $.fn.dataTable.util.escapeRegex(
+                  $(this).val()
+                );
+
+                column
+                  .search(val ? '^' + val + '$' : '', true, false)
+                  .draw();
+              });
+
+            column.data().unique().sort().each(function (d, j) {
+              if (column.search() === '^' + d + '$') {
+                select.append('<option value="' + d + '" selected="selected">' + d + '</option>')
+              } else {
+                var formattedtext = getTextFromString(d)
+                select.append('<option value="' + formattedtext + '">' + formattedtext + '</option>')
+              }
+            });
+
+            $(select).click(function (e) {
+              e.stopPropagation();
+            });
+
+          });
+        }
+      });
+    });
+  </script>
+
+
+
+</body>
+
+</html>
